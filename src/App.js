@@ -1,18 +1,15 @@
 import butterfly from "./img/butterfly.png";
 import longFlower from "./img/long-flower.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointDown } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 import { useState, useEffect } from "react";
 
 export default function App() {
-  const [shiftAside, setShiftAside] = useState(16);
-  const [shiftDown, setShiftDown] = useState(0);
+  const [shiftAside, setShiftAside] = useState(0);
+  const [shiftDown, setShiftDown] = useState(15);
   const [vertical, setVertical] = useState(250);
   const [horizontal, setHorizontal] = useState(0);
   const [fadeAway, setFadeAway] = useState(1);
 
-  const element = <FontAwesomeIcon icon={faHandPointDown} />;
   const timeFrame = 12;
 
   /* -------------------- BUTTERFLY FLUTTERING -------------------- */
@@ -36,63 +33,77 @@ export default function App() {
     setFadeAway(fadeAway - 0.005);
   };
 
+  useEffect(() => {
+    if (horizontal > -560 && horizontal < -536 && vertical > 426 && vertical < 448) {
+      unfading();
+    }
+  })
+
+  const unfading = () => {
+    setFadeAway(1.5);
+  }
+
   /* -------------------- BUTTERFLY CONTROL -------------------- */
   window.onkeydown = moveButterfly;
 
   function moveButterfly(e) {
     e = e || window.event;
 
-    if (e.keyCode === 38) {
-      //up
+    if (e.keyCode === 38) {//up
       fadeAway <= 0 ? setVertical(vertical - 2) : setVertical(vertical - 6);
-    } else if (e.keyCode === 40) {
-      //down
+    } else if (e.keyCode === 40) {//down
       fadeAway <= 0 ? setVertical(vertical + 2) : setVertical(vertical + 6);
-    } else if (e.keyCode === 37) {
-      //left
-      setShiftDown(0);
+    } else if (e.keyCode === 37) {//left
+      setShiftDown(15);
       fadeAway <= 0
         ? setHorizontal(horizontal - 2)
         : setHorizontal(horizontal - 6);
-    } else if (e.keyCode === 39) {
-      //right
+    } else if (e.keyCode === 39) {//right
       fadeAway <= 0
         ? setHorizontal(horizontal + 2)
         : setHorizontal(horizontal + 6);
-      setShiftDown(-60);
+      setShiftDown(-45);
     }
   }
 
-  setTimeout(() => {
-    const flower = document.getElementById("longFlower");
-  const flowerRect = flower.getBoundingClientRect();
-  console.log("width", flowerRect.width)
-  console.log("height", flowerRect.height)
-  console.log("left", flowerRect.left)
-  console.log("right", flowerRect.right)
-  console.log("top", flowerRect.top)
-  console.log("bottom", flowerRect.bottom)
-  console.log("x", flowerRect.x)
-  console.log("y", flowerRect.y)
-  }, 500)
+  // setTimeout(() => {
+  //   const flower = document.getElementById("longFlower");
+  //   const flowerRect = flower.getBoundingClientRect();
+  //   console.log("width", flowerRect.width)
+  //   console.log("height", flowerRect.height)
+  //   console.log("left", flowerRect.left)
+  //   console.log("right", flowerRect.right)
+  //   console.log("top", flowerRect.top)
+  //   console.log("bottom", flowerRect.bottom)
+  //   console.log("x", flowerRect.x)
+  //   console.log("y", flowerRect.y)
+  // }, 500)
+
+  // function printMousePos(event) {
+  //   // console.log(event);
+  //  document.body.textContent =
+  //  "clientX: " + event.x +
+  //  " - clientY: " + event.y;      //COOOOOOL!!!!!
+  // }
+
+  // document.addEventListener("click", printMousePos);
+
   
 
   /* -------------------- OUTPUT -------------------- */
   return (
     <div className="main">
-      {/* <p>fadeAway: {fadeAway.toFixed(3)}</p> */}
-      <p>horizontal: {horizontal}</p>
-      <p>vertical: {vertical}</p>
-      {/* <p>shiftAside: {shiftAside}</p>
-      <p>shiftDown: {shiftDown}</p> */}
+      {/* <p>horizontal: {horizontal}</p>
+      <p>vertical: {vertical}</p> */}
       <figure
         style={{
           position: "relative",
           top: `${vertical}px`,
           left: `${horizontal}px`,
-          // border: "1px blue solid",
-          width: "60px",
-          height: "50px",
+          border: `1px rgb(255, 255, 255, ${fadeAway}) solid`,
+          borderRadius: "50%",
+          width: "70px",
+          height: "70px",
           overflow: "hidden",
         }}
       >
@@ -113,7 +124,7 @@ export default function App() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          width: "20%",
+          width: "200px",
           position: "fixed",
           zIndex: "-1",
           left: "0",
@@ -125,13 +136,15 @@ export default function App() {
             visibility: fadeAway <= 0 ? "visible" : "hidden",
           }}
         >
-          <span className="pointer">{element}</span>
+          {/* <span className="pointer">{element}</span> */}
         </figcaption>
-        <img id="longFlower"
+        <img
+          id="longFlower"
           src={longFlower}
           alt="pink flower"
           style={{
             width: "100%",
+            // outline: "1px black solid",
           }}
         />
       </figure>
