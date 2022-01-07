@@ -93,8 +93,8 @@ export default function App() {
   /* -------------------- OUTPUT -------------------- */
   return (
     <div className="main">
-      {/* <p>horizontal: {horizontal}</p>
-      <p>vertical: {vertical}</p> */}
+      {/* <p>horizontal: {horizontal}</p> */}
+      {/* <p>vertical: {vertical}</p> */}
       <figure
         style={{
           position: "relative",
