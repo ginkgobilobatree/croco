@@ -83,7 +83,7 @@ export default function App() {
   //  console.log(horizontal, vertical)
   //  document.body.textContent =
   //  "clientX: " + event.x +a
-  //  " - clientY: " + event.y;      //COOOOOOL!!!!!
+  //  " - clientY: " + event.y;
   // }
 
   // document.addEventListener("click", printMousePos);
