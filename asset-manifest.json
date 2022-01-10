@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/croco/static/css/main.9300e43f.css",
+    "main.js": "/croco/static/js/main.3256529f.js",
+    "static/media/long-flower.png": "/croco/static/media/long-flower.75db6d9a18b4f52885a0.png",
+    "static/media/butterfly.png": "/croco/static/media/butterfly.0c4ecd8ff1f4095ea8c1.png",
+    "index.html": "/croco/index.html",
+    "main.9300e43f.css.map": "/croco/static/css/main.9300e43f.css.map",
+    "main.3256529f.js.map": "/croco/static/js/main.3256529f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9300e43f.css",
+    "static/js/main.3256529f.js"
+  ]
+}
