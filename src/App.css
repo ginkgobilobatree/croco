@@ -1,7 +1,7 @@
 .main {
-    background: url(./img/lawn.jpg) top center / 100% no-repeat fixed border-box;
+    /* background: url(./img/lawn.jpg) top center / 100% no-repeat fixed border-box; */
     position: relative;
-    z-index: -1;
+    /* z-index: -1; */
     height: 100vh;
     display: flex;
     justify-content: center;

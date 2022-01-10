@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [shiftAside, setShiftAside] = useState(0);
   const [shiftDown, setShiftDown] = useState(15);
-  const [vertical, setVertical] = useState(250);
-  const [horizontal, setHorizontal] = useState(0);
+  const [vertical, setVertical] = useState(250); //250
+  const [horizontal, setHorizontal] = useState(0); //0
   const [fadeAway, setFadeAway] = useState(1);
 
   const timeFrame = 12;
@@ -34,7 +34,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (horizontal > -560 && horizontal < -536 && vertical > 426 && vertical < 448) {
+    if (vertical > 124 && vertical < 148 && horizontal > -432 && horizontal < -408) {
       unfading();
     }
   })
@@ -63,7 +63,7 @@ export default function App() {
         ? setHorizontal(horizontal + 2)
         : setHorizontal(horizontal + 6);
       setShiftDown(-45);
-    }
+    } else if (e.key === "a") alert(`h ${horizontal} v ${vertical}`)
   }
 
   // setTimeout(() => {
@@ -74,34 +74,36 @@ export default function App() {
   //   console.log("left", flowerRect.left)
   //   console.log("right", flowerRect.right)
   //   console.log("top", flowerRect.top)
-  //   console.log("bottom", flowerRect.bottom)
+  //   console.log("bottom", flowerReact.bottom)
   //   console.log("x", flowerRect.x)
   //   console.log("y", flowerRect.y)
   // }, 500)
 
   // function printMousePos(event) {
-  //   // console.log(event);
+  //  console.log(horizontal, vertical)
   //  document.body.textContent =
-  //  "clientX: " + event.x +
+  //  "clientX: " + event.x +a
   //  " - clientY: " + event.y;      //COOOOOOL!!!!!
   // }
 
   // document.addEventListener("click", printMousePos);
 
-  
-
   /* -------------------- OUTPUT -------------------- */
   return (
-    <div className="main">
-      {/* <p>horizontal: {horizontal}</p> */}
-      {/* <p>vertical: {vertical}</p> */}
+    <div className="main"
+      style={{
+        zIndex: "-1",
+        backgroundColor: `rgba(29, 119, 179, ${fadeAway})`
+      }}>
+      {/* {<p>horizontal: {horizontal}</p>} */}
+      {/* {<p>vertical: {vertical}</p>} */}
       <figure
         style={{
           position: "relative",
           top: `${vertical}px`,
           left: `${horizontal}px`,
-          border: `1px rgb(255, 255, 255, ${fadeAway}) solid`,
-          borderRadius: "50%",
+          // border: `1px rgb(255, 255, 255, ${fadeAway}) solid`,
+          // borderRadius: "50%",
           width: "70px",
           height: "70px",
           overflow: "hidden",
@@ -124,7 +126,7 @@ export default function App() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          width: "200px",
+          width: "300px",
           position: "fixed",
           zIndex: "-1",
           left: "0",
