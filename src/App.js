@@ -137,7 +137,6 @@ export default function App() {
             visibility: fadeAway <= 0 ? "visible" : "hidden",
           }}
         >
-          {/* <span className="pointer">{element}</span> */}
         </figcaption>
         <img
           id="longFlower"
@@ -145,7 +144,6 @@ export default function App() {
           alt="pink flower"
           style={{
             width: "100%",
-            // outline: "1px black solid",
           }}
         />
       </figure>
