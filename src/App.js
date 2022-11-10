@@ -34,10 +34,10 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (vertical > 124 && vertical < 148 && horizontal > -432 && horizontal < -408) {
+    if (vertical > 280 && vertical < 310 && horizontal > -710 && horizontal < -668) {
       unfading();
     }
-  })
+  }, [horizontal, vertical])
 
   const unfading = () => {
     setFadeAway(1.5);
@@ -47,7 +47,6 @@ export default function App() {
   window.onkeydown = moveButterfly;
 
   function moveButterfly(e) {
-    e = e || window.event;
 
     if (e.keyCode === 38) {//up
       fadeAway <= 0 ? setVertical(vertical - 2) : setVertical(vertical - 6);
@@ -74,7 +73,7 @@ export default function App() {
   //   console.log("left", flowerRect.left)
   //   console.log("right", flowerRect.right)
   //   console.log("top", flowerRect.top)
-  //   console.log("bottom", flowerReact.bottom)
+  //   console.log("bottom", flowerRect.bottom)
   //   console.log("x", flowerRect.x)
   //   console.log("y", flowerRect.y)
   // }, 500)
@@ -82,7 +81,7 @@ export default function App() {
   // function printMousePos(event) {
   //  console.log(horizontal, vertical)
   //  document.body.textContent =
-  //  "clientX: " + event.x +a
+  //  "clientX: " + event.x +
   //  " - clientY: " + event.y;
   // }
 
